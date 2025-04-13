@@ -35,16 +35,27 @@ void showInputChart(vector<Process>& processes) {
 }
 
 void showGanttChart(vector<Process>& processes, vector<int>& times) {
-    cout << "\nGantt Chart:\n";
+    cout << "\n\nGantt Chart:\n\n";
+
+    cout << " ";
     for (int i = 0; i < processes.size(); i++) {
-        cout << "    P" << processes[i].id << "    ";
+        cout << "--------";
     }
-    cout << "\n";
+    cout << "-\n|";
+    for (int i = 0; i < processes.size(); i++) {
+        cout << "  P" << setw(2) << processes[i].id << "  |";
+    }
+    cout << "\n ";
+    for (int i = 0; i < processes.size(); i++) {
+        cout << "--------";
+    }
+    cout << "-\n";
     for (int i = 0; i < times.size(); i++) {
-        cout << times[i] << "        ";
+        cout << setw(2) << times[i] << "      ";
     }
-    cout << times.back() + processes.back().bt << "\n";
+    cout << setw(2) << times.back() + processes.back().bt << "\n";
 }
+
 
 void showResultChart(vector<Process>& processes) {
     cout << "\n+------------+-----------------+-----------------+---------------+---------------+\n";
